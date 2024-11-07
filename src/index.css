@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .input {
+    @apply rounded-full border border-primary px-4 py-2 text-sm transition-all duration-300 placeholder:text-primary focus:outline-none focus:ring focus:ring-yellow_400 md:px-6 md:py-3;
+  }
+  .header-des{
+    @apply relative header-icon before:content-[""] before:absolute before:top-[-3px] before:left-8 before:bg-yellow_400 before:w-10 before:h-2 after:content-[""] after:w-2 after:h-7 after:absolute after:top-6 after:left-[-3px] after:bg-yellow_400  font-bold text-3xl tracking-wide border-l-primary text-center border-l-2 border-t-2 pl-2 pt-1
+  }
+  .header-icons{
+    @apply px-2 py-2 text-secondary hover:bg-primary bg-success rounded-full
+  }
+  .header-menu{
+    @apply text-xl font-semibold font-inter px-10 py-5 border-b-[1px] m-2 border-b-success
+   
+  }
+  @layer utilities {
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+   /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+  }
+}
+  /* https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje */
+  .loader {
+    width: 45px;
+    aspect-ratio: 0.75;
+    --c: no-repeat linear-gradient(theme(colors.secondary) 0 0);
+    background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+    background-size: 20% 50%;
+    animation: loading 1s infinite linear;
+  }
+  .header-icon{
+    font-family:"Jim Nightshade", cursive 
+  }
+  .font-inter{
+    font-family: "Inter", sans-serif;
+  }
+  .font-league{
+    font-family: "League Spartan", sans-serif;
+  }
+  a.active{
+    color:theme(colors.secondary);
+    
+  }
+  
+  .no-active{
+    color:theme(colors.primary)
+  }
+  @keyframes loading {
+    20% {
+      background-position: 0% 0%, 50% 50%, 100% 50%;
+    }
+    40% {
+      background-position: 0% 100%, 50% 0%, 100% 50%;
+    }
+    60% {
+      background-position: 0% 50%, 50% 100%, 100% 0%;
+    }
+    80% {
+      background-position: 0% 50%, 50% 50%, 100% 100%;
+    }
+  }
+}
+/* to scroll for products section and parents component mask(linear gradient color) styling */
+.scroller{
+  -webkit-mask:linear-gradient(90deg,transparent,white 20%,white 80%,transparent);
+  mask:linear-gradient(90deg,transparent,white 20%,white 80%,transparent)
+}
+.scroll{
+  animation: scroller 20s linear infinite;
+}
+
+@keyframes scroller {
+  to{
+    transform: translate(-100%);
+    }
+  
+}
+.scroll:hover{
+  animation: pushed;
+}
+
+/* amenities background styling*/
+.amenities{
+  background-image:linear-gradient(rgba(31, 31, 31, 0.692), rgba(64, 63, 63, 0.709)), url("/pizzer-1.png");
+}
+
+/* animation */
+
+.show{
+  animation: show 0.9s 0.5s linear;
+}
+@keyframes show {
+  10%{
+    transform: translateY(40px);
+    opacity: 0.1;
+  }
+  40%{
+    transform: translateY(30px);
+    opacity: 0.4;
+  }
+ 
+  80%{
+    transform: translateY(10px);
+    opacity: 0.9;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate{
+   animation-timeline: view();
+   animation-range: entry 0;
+}
