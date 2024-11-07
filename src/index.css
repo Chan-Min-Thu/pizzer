@@ -17,6 +17,11 @@
     @apply text-xl font-semibold font-inter px-10 py-5 border-b-[1px] m-2 border-b-success
    
   }
+  .isCart{
+    @apply bg-[red]
+  }
+  
+  
   @layer utilities {
     /* Hide scrollbar for Chrome, Safari and Opera */
     .no-scrollbar::-webkit-scrollbar {
@@ -92,6 +97,8 @@
 .amenities{
   background-image:linear-gradient(rgba(31, 31, 31, 0.692), rgba(64, 63, 63, 0.709)), url("/pizzer-1.png");
 }
+
+
 
 /* animation */
 

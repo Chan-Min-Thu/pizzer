@@ -3,7 +3,7 @@ import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { BiMenu, BiSearch, BiSolidCartAdd, BiUser } from 'react-icons/bi'
 import { RxCross1 } from 'react-icons/rx';
-import "../index.css"
+// import "../index.css"
 import { getUser } from '../features/user/userSlice';
 import { getCarts } from '../features/cart/cartSlice';
 import SearchOrder from '../features/order/SearchOrder';
@@ -17,7 +17,8 @@ export default function Header() {
   const [scroll,setScroll] = useState(0);
   const user = useSelector(getUser)
   const carts = useSelector(getCarts)
-
+  const isCart = carts.length ? true:false
+  console.log(isCart,)
   const handleScroll = useCallback(() => {
     if (window.scrollY > scroll) {
 
@@ -49,7 +50,8 @@ export default function Header() {
             <BiSearch />
           </li>
           <Link to={"/cart"}>
-          <li data-content={carts.length > 0 ? carts.length:""} className={`header-icons relative before:content-[attr(data-content)] before:absolute before:top-[-3px] before:right-[-3px] before:text-sm before:flex before:justify-center before:items-center before:rounded-full before:w-5 before:h-5 before:${carts.length&&"bg-[red]"} `}>
+          <li data-content={carts.length > 0 ? carts.length:""} className={`header-icons relative before:content-[attr(data-content)] before:absolute before:top-[-3px] before:right-[-3px] before:text-sm before:flex before:justify-center before:items-center before:rounded-full before:w-5 before:h-5 before:${isCart && "isCart"} `}>
+            <span className={`absolute top-[-3px] right-[-3px] text-sm flex justify-center items-center rounded-full w-5 h-5 ${isCart &&"isCart"}`}>{carts.length?carts.length:""}</span>
             <BiSolidCartAdd />
           </li>
           </Link>
