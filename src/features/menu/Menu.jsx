@@ -1,6 +1,6 @@
 import { useLoaderData, useNavigate, useParams } from "react-router-dom"
 import { TbArrowBack } from "react-icons/tb";
-// import { getMenu } from "../../services/apiRestaurant";
+import { formatCurrency } from "../../utils/helper";
 import { useInView } from "react-intersection-observer";
 import { useDispatch } from "react-redux";
 import { addingCart } from "../cart/cartSlice";
@@ -32,7 +32,7 @@ export default function Menu() {
             <h1 className={`text-3xl font-inter font-extrabold mb-5 text-yellow_400 ${scroll?" animate-fade":"opactiy-0"}`}>{menu.name}</h1>
             <p className={`text-info mb-4 text-md ${scroll?"animate-fade":"opacity-0"}`}>An all-time favorite! Our Pepperoni Pizza is loaded with generous slices of spicy, smoky pepperoni on a bed of bubbling mozzarella cheese, all atop our signature tomato sauce. Perfect for those who love bold, savory flavors.</p>
             <p className={`text-whitegray mb-4 text-md ${scroll?"animate-fade":"opacity-0"}`}>{ingredients?.map(i=> i.charAt(0).toUpperCase()+i.slice(1)).join(",")}</p>
-            <p className={`text-3xl font-thin mb-4 text-yellow_300 ${scroll?"animate-fade":"opacity-0"}`}>${unitPrice}</p>
+            <p className={`text-3xl font-thin mb-4 text-yellow_300 ${scroll?"animate-fade":"opacity-0"}`}>{formatCurrency(unitPrice)}</p>
             <Button name={soldOut?"Sold Out":"Add to cart"} type="primary" onClick={addToCartfun} disabled={soldOut}/>
         </div>
     </div>
