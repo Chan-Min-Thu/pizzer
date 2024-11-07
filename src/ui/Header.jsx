@@ -49,7 +49,7 @@ export default function Header() {
             <BiSearch />
           </li>
           <Link to={"/cart"}>
-          <li data-content={carts.length > 0 ? carts.length:""} className={`header-icons relative before:content-[attr(data-content)] before:absolute before:top-[-3px] before:right-[-3px] before:text-sm before:flex before:justify-center before:items-center before:rounded-full before:w-5 before:h-5 before:${carts.length && 'bg-[red]'} `}>
+          <li data-content={carts.length > 0 ? carts.length:""} className={`header-icons relative before:content-[attr(data-content)] before:absolute before:top-[-3px] before:right-[-3px] before:text-sm before:flex before:justify-center before:items-center before:rounded-full before:w-5 before:h-5 before:${carts.length&&"bg-[red]"} `}>
             <BiSolidCartAdd />
           </li>
           </Link>
