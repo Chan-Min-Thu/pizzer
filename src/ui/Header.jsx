@@ -18,7 +18,6 @@ export default function Header() {
   const user = useSelector(getUser)
   const carts = useSelector(getCarts)
   const isCart = carts.length ? true:false
-  console.log(isCart,)
   const handleScroll = useCallback(() => {
     if (window.scrollY > scroll) {
 
@@ -50,7 +49,7 @@ export default function Header() {
             <BiSearch />
           </li>
           <Link to={"/cart"}>
-          <li data-content={carts.length > 0 ? carts.length:""} className={`header-icons relative before:content-[attr(data-content)] before:absolute before:top-[-3px] before:right-[-3px] before:text-sm before:flex before:justify-center before:items-center before:rounded-full before:w-5 before:h-5 before:${isCart && "isCart"} `}>
+          <li className={`header-icons relative`}>
             <span className={`absolute top-[-3px] right-[-3px] text-sm flex justify-center items-center rounded-full w-5 h-5 ${isCart &&"isCart"}`}>{carts.length?carts.length:""}</span>
             <BiSolidCartAdd />
           </li>

@@ -91,10 +91,11 @@ function CreateOrder() {
 export async function action({request}) {
   const formData = await request.formData()
   const data = Object.fromEntries(formData)
+  console.log(data)
   const order = {
     ...data,
     cart:JSON.parse(data.cart),
-    priority:data.priority === "on"?true:false
+    priority:data.priority === "true"?true:false
   }
   const error = {};
   if(!isValidPhone(order.phone)) error.phone = "Please give us your correct phone number.We might need it to contact you."

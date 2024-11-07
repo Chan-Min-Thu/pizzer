@@ -12,7 +12,6 @@ function Cart() {
   const userName = useSelector(state => state.user.userName)
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(carts)
   if(carts.length === 0) return <EmptyCart/>
   return (
     <div className='w-full bg-primary'>
